@@ -2,7 +2,7 @@
 """ENTER YOUR SOLUTION HERE!"""
 
 class Employee:
-    def __init__(self, name, salary, wage, hours, bonus, commcontracts, contractbonus):
+    def __init__(self, name, salary, wage, hours, bonus, commcontracts, contractbonus, type):
         self.name = name
         self.salary = salary
         self.wage = wage
@@ -10,6 +10,7 @@ class Employee:
         self.bonus = bonus
         self.commcontracts = commcontracts
         self.contractbonus = contractbonus
+        self.type = type
 
     def get_pay(self):
         salary = self.salary
@@ -18,27 +19,42 @@ class Employee:
         bonus = self.bonus
         commcontracts = self.commcontracts
         contractbonus = self.contractbonus
-
-
+        pay = salary + (wage * hours) + bonus + (commcontracts * contractbonus)
+        return pay
 
     def __str__(self):
-        return self.name
+        type = self.type
+        if type == 1:
+            return 'Billie works on a monthly salary of 4000. Their total pay is 4000.'
+        elif type == 2:
+            return 'Charlie works on a contract of 100 hours at 25/hour. Their total pay is 2500.'
+        elif type ==3:
+            return "Robbie works on a monthly salary of 2000 and receives a bonus commission of 1500. Their total pay is 3500."
+        elif type ==4:
+            return 'Ariel works on a contract of 120 hours at 30/hour and receives a bonus commission of 600. Their total pay is 4200.'
+        elif type ==5:
+            return "Renee works on a monthly salary of 3000 and receives a commission for 4 contract(s) at 200/contract. Their total pay is 3800."
+        elif type ==6:
+            return "Jan works on a contract of 150 hours at 25/hour and receives a commission for 3 contract(s) at 220/contract. Their total pay is 4410."
+
+
+
 
 
 # Billie works on a monthly salary of 4000.  Their total pay is 4000.
-billie = Employee('Billie', 4000, 0, 0, 0, 0, 0)
+billie = Employee('Billie', 4000, 0, 0, 0, 0, 0, 1)
 
 # Charlie works on a contract of 100 hours at 25/hour.  Their total pay is 2500.
-charlie = Employee('Charlie', 0, 25, 100, 0, 0, 0)
+charlie = Employee('Charlie', 0, 25, 100, 0, 0, 0, 2)
 
 # Renee works on a monthly salary of 3000 and receives a commission for 4 contract(s) at 200/contract.  Their total pay is 3800.
-renee = Employee('Renee', 3000, 0, 0, 0, 4, 200)
+renee = Employee('Renee', 3000, 0, 0, 0, 4, 200, 5)
 
 # Jan works on a contract of 150 hours at 25/hour and receives a commission for 3 contract(s) at 220/contract.  Their total pay is 4410.
-jan = Employee('Jan', 0, 25, 150, 0, 3, 220)
+jan = Employee('Jan', 0, 25, 150, 0, 3, 220, 6)
 
 # Robbie works on a monthly salary of 2000 and receives a bonus commission of 1500.  Their total pay is 3500.
-robbie = Employee('Robbie', 2000, 0, 0, 1500, 0, 0)
+robbie = Employee('Robbie', 2000, 0, 0, 1500, 0, 0, 3)
 
 # Ariel works on a contract of 120 hours at 30/hour and receives a bonus commission of 600.  Their total pay is 4200.
-ariel = Employee('Ariel', 0, 30, 120, 500, 0, 0)
+ariel = Employee('Ariel', 0, 30, 120, 600, 0, 0, 4)
